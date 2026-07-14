@@ -2876,6 +2876,10 @@ h1 {
   white-space: nowrap;
 }
 
+.mobile-only-break {
+  display: none;
+}
+
 .agency-hero-copy > p:not(.agency-pill) {
   max-width: 570px;
   margin: 0 0 30px;
@@ -3087,7 +3091,7 @@ h1 {
   margin: 0;
   color: var(--agency-ink);
   font-size: clamp(39px, 5.7vw, 82px);
-  line-height: 0.98;
+  line-height: 1.04;
   text-wrap: balance;
 }
 
@@ -3111,7 +3115,7 @@ h1 {
   margin: 20px 0 0;
   color: var(--agency-ink);
   font-size: clamp(44px, 6.4vw, 90px);
-  line-height: 0.92;
+  line-height: 1.04;
   text-wrap: balance;
 }
 
@@ -3243,7 +3247,7 @@ h1 {
 .result-statement h2 {
   margin: 0;
   font-size: clamp(49px, 7.4vw, 110px);
-  line-height: 0.9;
+  line-height: 1.04;
 }
 
 .result-list {
@@ -3461,7 +3465,7 @@ h1 {
 .agency-process-top h2 {
   margin: 0;
   font-size: clamp(50px, 7vw, 102px);
-  line-height: 0.9;
+  line-height: 1.04;
 }
 
 .agency-process-top p {
@@ -3531,7 +3535,7 @@ h1 {
 .agency-cta h2 {
   margin: 26px 0 18px;
   font-size: clamp(45px, 6.6vw, 92px);
-  line-height: 0.92;
+  line-height: 1.04;
 }
 
 .agency-cta-copy p {
@@ -3600,6 +3604,10 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  .mobile-only-break {
+    display: block;
+  }
+
   .agencyai-home .nav-wrap {
     flex-wrap: wrap;
     gap: 10px 12px;
@@ -3776,6 +3784,7 @@ h1 {
   }
 
   .agency-cta {
+    flex-direction: column;
     align-items: start;
     padding: 78px 18px;
   }
@@ -3785,6 +3794,7 @@ h1 {
   }
 
   .agency-cta-button {
+    align-self: flex-end;
     flex-basis: 76px;
     width: 76px;
     height: 76px;
