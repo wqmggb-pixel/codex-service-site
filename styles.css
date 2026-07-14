@@ -2853,7 +2853,7 @@ h1 {
   color: var(--agency-ink);
   font-size: clamp(56px, 7.5vw, 112px);
   font-weight: 900;
-  line-height: 0.92;
+  line-height: 1.04;
   letter-spacing: 0;
   text-wrap: balance;
 }
