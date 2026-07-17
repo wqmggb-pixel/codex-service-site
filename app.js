@@ -389,3 +389,109 @@ document.querySelectorAll('.lead-form').forEach((form) => {
     }
   });
 });
+
+// Shared inner-page interactions: tabs, filtering, live form readiness and subtle depth.
+document.querySelectorAll('[data-learning-tabs]').forEach((tabsRoot) => {
+  const tabs = Array.from(tabsRoot.querySelectorAll('[data-learning-tab]'));
+  const panels = Array.from(tabsRoot.querySelectorAll('[data-learning-panel]'));
+
+  const activateTab = (tab) => {
+    const target = tab.dataset.learningTab;
+    tabs.forEach((item) => {
+      const active = item === tab;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-selected', String(active));
+      item.tabIndex = active ? 0 : -1;
+    });
+    panels.forEach((panel) => {
+      const active = panel.dataset.learningPanel === target;
+      panel.hidden = !active;
+      panel.classList.toggle('is-active', active);
+    });
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = index;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = tabs.length - 1;
+      activateTab(tabs[nextIndex]);
+      tabs[nextIndex].focus();
+    });
+  });
+});
+
+const scenarioButtons = Array.from(document.querySelectorAll('[data-scenario-filter]'));
+const scenarioModules = Array.from(document.querySelectorAll('[data-scenario-category]'));
+scenarioButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.scenarioFilter;
+    scenarioButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+    scenarioModules.forEach((module) => {
+      const visible = filter === 'all' || module.dataset.scenarioCategory === filter;
+      module.hidden = !visible;
+      if (visible) module.classList.add('is-visible');
+    });
+  });
+});
+
+document.querySelectorAll('[data-form-meter]').forEach((form) => {
+  const requiredFields = Array.from(form.querySelectorAll('[required]'));
+  const shell = form.closest('.nexus-form-shell');
+  const progressBar = shell?.querySelector('[data-form-progress]');
+  const progressText = shell?.querySelector('[data-form-progress-text]');
+
+  const updateFormMeter = () => {
+    const completed = requiredFields.filter((field) => String(field.value || '').trim().length > 0).length;
+    const progress = requiredFields.length ? Math.round((completed / requiredFields.length) * 100) : 0;
+    if (progressBar) progressBar.style.setProperty('--progress', `${progress}%`);
+    if (progressText) progressText.textContent = `${progress}%`;
+  };
+
+  form.addEventListener('input', updateFormMeter);
+  form.addEventListener('change', updateFormMeter);
+  form.addEventListener('reset', () => window.requestAnimationFrame(updateFormMeter));
+  updateFormMeter();
+});
+
+if (motionEnabled && window.matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('[data-tilt-panel]').forEach((panel) => {
+    panel.addEventListener('pointermove', (event) => {
+      const bounds = panel.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      panel.style.setProperty('--tilt-x', `${y * -2.4}deg`);
+      panel.style.setProperty('--tilt-y', `${x * 3.2}deg`);
+    });
+    panel.addEventListener('pointerleave', () => {
+      panel.style.setProperty('--tilt-x', '0deg');
+      panel.style.setProperty('--tilt-y', '0deg');
+    });
+  });
+}
+
+if (navLinks && navToggle) {
+  navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+}
+
+// Re-apply deep links after layout settles so sticky headers and responsive sections land correctly.
+if (window.location.hash) {
+  window.addEventListener('load', () => {
+    const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (!target) return;
+    window.setTimeout(() => target.scrollIntoView({ block: 'start' }), 80);
+  });
+}

@@ -1,1 +1,85 @@
-﻿<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Codex 介绍 | Codex 服务站</title><link rel="stylesheet" href="../styles.css"></head><body><header class="site-header"><div class="nav-wrap"><a class="brand" href="../index.html"><span class="brand-mark">CX</span><span class="brand-text"><span class="brand-name">Codex 服务站</span><span class="brand-sub">教程 · 陪跑 · 需求对接</span></span></a><nav class="nav-links" data-nav-links><a href="../codex/index.html">Codex 介绍</a><a href="../tutorial/index.html">入门教程</a><a href="../scenarios/index.html">应用场景</a><a href="../coaching/index.html">1对1陪跑</a><a href="../post-demand/index.html">发布需求</a><a href="../take-orders/index.html">我要接单</a></nav><div class="nav-actions"><a class="button secondary" href="../post-demand/index.html">发布需求</a><button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="打开导航">☰</button></div></div></header><main><section class="page-hero"><span class="eyebrow">Codex 介绍</span><h1>它不是普通聊天工具，而是能进入项目工作的编码代理</h1><p>Codex 可以读项目、改代码、运行检查、解释结果，也适合把重复开发流程交给代理处理。</p></section><section class="section"><div class="feature-grid"><article class="card"><span class="number">01</span><h3>写代码</h3><p>你描述要构建的功能，Codex 会根据现有项目结构和约定生成对应代码。</p></article><article class="card"><span class="number">02</span><h3>理解代码库</h3><p>面对陌生或遗留项目时，可以让 Codex 梳理模块、依赖、入口和关键流程。</p></article><article class="card"><span class="number">03</span><h3>审查代码</h3><p>用于发现潜在 bug、逻辑错误、边界条件遗漏和测试缺口。</p></article><article class="card"><span class="number">04</span><h3>调试修复</h3><p>当功能失败时，Codex 可以追踪错误、定位原因，并提出针对性修复。</p></article></div><div class="route-cta"><a class="button primary" href="../tutorial/index.html">从入门教程开始</a><a class="button secondary" href="../coaching/index.html">预约陪跑</a></div></section></main><footer class="site-footer"><div class="footer-inner"><span>Codex 服务站 · 第一版静态原型</span><span>表单已接入飞书需求表，提交后进入后台跟进。</span></div></footer><script src="../config.js"></script><script src="../app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex 介绍 | 从对话到可交付结果</title>
+  <meta name="description" content="了解 Codex 如何读取项目、编写代码、运行检查并完成可验证的项目交付。">
+  <meta name="theme-color" content="#070808">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="theme-ai inner-tech-page page-codex">
+  <canvas class="ambient-canvas" data-ambient-canvas aria-hidden="true"></canvas>
+  <div class="page-progress" data-page-progress aria-hidden="true"></div>
+  <div class="custom-cursor" data-custom-cursor aria-hidden="true"><span data-cursor-label>OPEN</span></div>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="../index.html" aria-label="返回 Codex 服务站首页">
+        <span class="brand-mark">CX</span>
+        <span class="brand-text"><span class="brand-name">Codex 服务站</span><span class="brand-sub">AI 编码 · 项目交付 · 需求对接</span></span>
+      </a>
+      <nav class="nav-links" data-nav-links aria-label="主导航">
+        <a href="../codex/index.html">Codex 介绍</a><a href="../tutorial/index.html">入门教程</a><a href="../scenarios/index.html">应用场景</a><a href="../coaching/index.html">1对1陪跑</a><a href="../post-demand/index.html">发布需求</a><a href="../take-orders/index.html">我要接单</a>
+      </nav>
+      <div class="nav-actions"><a class="agency-nav-cta" href="../post-demand/index.html">开始项目 <span>↗</span></a><button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-label="打开导航">MENU</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="nexus-hero">
+      <div class="nexus-hero-copy reveal">
+        <span class="nexus-kicker"><i></i>CODEX / AGENT SYSTEM / 01</span>
+        <h1>不只回答问题，<br><span>直接进入项目工作。</span></h1>
+        <p>Codex 能读取代码库、规划任务、修改文件、运行检查并解释结果。你得到的不是一段建议，而是一条可以继续推进的工作链路。</p>
+        <div class="nexus-actions"><a class="nexus-button primary" href="../tutorial/index.html" data-cursor-text="LEARN">从第一次任务开始 <span>↗</span></a><a class="nexus-button secondary" href="../scenarios/index.html" data-cursor-text="EXPLORE">查看应用场景</a></div>
+        <div class="nexus-proof"><span><b>LOCAL</b> 读取真实项目</span><span><b>VERIFY</b> 运行检查</span><span><b>DELIVER</b> 形成交付</span></div>
+      </div>
+
+      <div class="nexus-console reveal" data-tilt-panel aria-label="Codex 代理能力实时面板">
+        <div class="console-bar"><span>AGENT CAPABILITY MATRIX</span><span class="live-status"><i></i> SYSTEM ONLINE</span></div>
+        <div class="console-focus">
+          <span class="console-index">CX / CORE</span>
+          <strong>从上下文到结果</strong>
+          <small>Context → Plan → Build → Check</small>
+        </div>
+        <div class="capability-stream">
+          <div class="stream-row"><span>01</span><strong>READ</strong><em>项目结构与规则</em><i style="--level:92%"></i></div>
+          <div class="stream-row"><span>02</span><strong>PLAN</strong><em>任务拆解与边界</em><i style="--level:84%"></i></div>
+          <div class="stream-row"><span>03</span><strong>BUILD</strong><em>代码与文档修改</em><i style="--level:89%"></i></div>
+          <div class="stream-row"><span>04</span><strong>VERIFY</strong><em>测试与结果检查</em><i style="--level:78%"></i></div>
+        </div>
+        <div class="console-metrics"><div><span>ACTIVE CONTEXT</span><strong>24.8K</strong></div><div><span>WORKFLOW</span><strong>READY</strong></div><div><span>MODE</span><strong>LOCAL</strong></div></div>
+      </div>
+    </section>
+
+    <section class="nexus-section">
+      <div class="nexus-section-head reveal"><div><span class="section-code">01 / CAPABILITIES</span><h2>四种能力，组成一条完整工作流。</h2></div><p>真正有价值的不是单次生成，而是理解当前项目、做出修改并证明修改有效。</p></div>
+      <div class="nexus-card-grid four-up">
+        <article class="nexus-card reveal" data-cursor-text="READ"><span class="card-code">01 / READ</span><h3>理解代码库</h3><p>梳理入口、模块、依赖、规则和关键流程，先建立可靠上下文。</p><div class="card-signal"><i></i><span>CONTEXT MAPPED</span></div></article>
+        <article class="nexus-card reveal" data-cursor-text="BUILD"><span class="card-code">02 / BUILD</span><h3>编写与修改</h3><p>沿用现有结构实现功能、调整界面、整理组件和补齐文档。</p><div class="card-signal"><i></i><span>PATCH READY</span></div></article>
+        <article class="nexus-card reveal" data-cursor-text="DEBUG"><span class="card-code">03 / DEBUG</span><h3>定位与修复</h3><p>从错误现象追到根因，处理边界条件，而不是只遮住报错。</p><div class="card-signal"><i></i><span>TRACE ACTIVE</span></div></article>
+        <article class="nexus-card reveal" data-cursor-text="VERIFY"><span class="card-code">04 / VERIFY</span><h3>审查与验证</h3><p>运行测试、检查链接与交互，清楚说明完成状态和剩余风险。</p><div class="card-signal"><i></i><span>CHECK PASSED</span></div></article>
+      </div>
+    </section>
+
+    <section class="nexus-section nexus-section-alt">
+      <div class="nexus-section-head reveal"><div><span class="section-code">02 / EXECUTION LOOP</span><h2>好的结果，来自可追踪的执行过程。</h2></div><p>每一步都有输入、有判断、有输出，避免“看起来做了很多”却无法验收。</p></div>
+      <div class="execution-rail reveal">
+        <div class="rail-step"><span>01</span><strong>目标</strong><small>定义交付物</small></div><div class="rail-line"><i></i></div>
+        <div class="rail-step"><span>02</span><strong>上下文</strong><small>读取材料与规则</small></div><div class="rail-line"><i></i></div>
+        <div class="rail-step"><span>03</span><strong>执行</strong><small>修改并记录变化</small></div><div class="rail-line"><i></i></div>
+        <div class="rail-step"><span>04</span><strong>验证</strong><small>用证据确认完成</small></div>
+      </div>
+    </section>
+
+    <section class="nexus-final-cta reveal">
+      <div><span class="nexus-kicker"><i></i>READY FOR FIRST RUN</span><h2>把第一件真实工作交给 Codex。</h2><p>从一个清楚、可检查的小任务开始，最快建立正确使用方式。</p></div>
+      <a class="nexus-cta-orb" href="../tutorial/index.html" data-cursor-text="START"><span>开始教程</span><b>↗</b></a>
+    </section>
+  </main>
+
+  <footer class="site-footer nexus-footer"><div class="footer-inner"><span>Codex 服务站 · 把 AI 变成真正的执行力</span><span>LEARN · BUILD · VERIFY · DELIVER</span></div></footer>
+  <script src="../config.js"></script><script src="../app.js" defer></script>
+</body>
+</html>
